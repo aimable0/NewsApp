@@ -1,0 +1,14 @@
+{% extends "./layout.html" %}
+<!-- use the layout html template but replace the block body with my block body -->
+{% block body %}
+    <h2>Current Tasks</h2>
+    <ul>
+        {% if not tasks %}
+            <li>NO tasks</li>
+        {% endif %}
+        {% for task in tasks %}
+            <li>{{ task }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'tasks:add' %}">Add a New Task</a>
+{% endblock %}
